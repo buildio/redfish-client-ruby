@@ -71,7 +71,8 @@ module RedfishClient
     end
 
     def auth_test_path
-      raw.values.find { |v| v["@odata.id"] }["@odata.id"]
+      odata = raw.values.find { |v| v["@odata.id"] }
+      odata["@odata.id"] if odata
     end
   end
 end
